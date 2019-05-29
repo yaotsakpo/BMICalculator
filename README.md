@@ -1,2 +1,2 @@
 # BMICalculator
-BMICalcultor is create with node js 
+BMICalcultor is a BMI calculator created with node js 
