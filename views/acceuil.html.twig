@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>BMI-Calculator</title>
+
+	<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="font/css/fontawesome.css" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
+</head>
+<body class="p-2">
+<div class="container-fluid ">
+<div class="text-center">    
+<h2>
+    BMI Calculator
+</h2>
+<small>Body mass index (BMI) is a measure of body fat based on height and weight that applies to adult men and women.</small>
+</div>
+    <div class="row mt-2">
+    <div class="col-md-6 ml-auto mr-auto">
+    <h3>history of calculations</h3>
+    <div id="history"></div>
+    </div>
+        <div class="col-md-6 ml-auto mr-auto">
+          <div class="card bg-light ">
+            <div class="shadow">
+                <div class="card-title pt-4 col-lg-12 col-md-12">
+                    <div class="row">
+                     <div class="col"> <h5><i>BMI-Calculator</i></h5> </div> 
+                     <div class="col ml-auto "  >
+                         <span class="text-white" id="interpretation"></span>
+                     </div>
+                    </div>
+                    <input type="text" name="ecran" id="ecran" class="form-control" disabled>
+                </div>    
+            </div>
+            <div class="card-body panelcalcul" >
+                
+                <div class="row m-4 col-md ml-auto mr-auto">
+                    <button class="btn btn-danger col" onclick="standard()">STANDARD</button>
+                    <button class="btn btn-primary col" onclick="metric()">METRIC</button>
+                </div> 
+
+                <div class="row m-4 col-md ml-auto mr-auto">
+                    <input type="text" name="Height" id="Height" placeholder="Height" class="form-control col" disabled>
+
+                    <button class="btn btn-light col mt-0" onclick="passe()" id="passe" disabled><b><==></b> 
+                    </button>
+                    
+                    <input type="text" name="Weight" id="Weight" placeholder="Weight" class="form-control col" disabled>
+                </div>
+                {% set a=1 %}
+            	{% set b=a+2 %}
+	                {% for j in 1..3 %}
+	                	
+		                <div class="row m-4">
+		                	{% for i in a..b if b <= 9 %}
+		                	 	<button class="btn btn-border col " onclick="affect({{ i }})">{{ i }}</button>
+		                	{% endfor %}                    
+		                </div>
+		                {% set a=b+1 %}
+	                	{% set b=a+2 %}
+
+					{% endfor %} 
+                <div class="row m-4">
+                    <button class="btn btn-border col " onclick="initialize()">ON/C</button>
+                    <button class="btn btn-border col " onclick="affect('{{ 0 }}')">0</button>
+                    <button class="btn btn-border col " onclick="back()"><i class="fas fa-backspace"></i></button>
+                </div>
+                
+                 <div class="row m-4">
+                    <button class="btn btn-success col" onclick="compute()">Compute BMI</button>
+                </div>
+
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid ">
+    <div class="row mt-2">
+        <div class="col-md-6 ml-auto mr-auto">
+                <h3>Instructions</h3>
+                <div class="body table-responsive" >
+                    <table class="table" >
+                        <tbody>
+                            <tr>
+                                <th scope="row">Underweight</th>
+                                <td> < 18.5</td>
+                             
+                            </tr>
+                            <tr>
+                                <th scope="row">Normal weight </th>
+                                <td> 18.5 – 24.9 </td>
+                               
+                            </tr>
+                            <tr>
+                                <th scope="row">Overweight</th>
+                                <td> 25 – 29.9 </td>
+                               
+                            </tr>
+                            <tr>
+                                <th scope="row">Obesity</th>
+                                <td> BMI of 30 or greater </td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+    </div>
+</div>  
+<script src="jquery/jquery.3.2.1.min.js"></script>
+
+
+<script src="popper.min.js"></script>
+
+<script src="bootstrap/js/bootstrap.js"></script>
+
+<script src="nombre.js"></script>
+
+<script src="fonctions.js"></script>
+
+</body>
+</html>
